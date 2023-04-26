@@ -10,5 +10,9 @@
   },
   "devDependencies": {
     "nuxt": "^3.4.1"
+  },
+  "dependencies": {
+    "@appwrite.io/pink": "^0.0.6-rc.10",
+    "appwrite": "^10.2.0"
   }
 }
