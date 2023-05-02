@@ -6,22 +6,17 @@
       </h2>
     </nav>
     <div class="container">
-      <h2 class="eyebrow-heading-1 u-text-center u-padding-64">posts</h2>
-      <ul class="list">
-        <li
-          class="box u-flex u-cross-center u-main-space-between"
-          v-for="doc in docs"
-          :key="doc.$id"
+      <div class="u-grid">
+        <h2
+          class="heading-level-3 u-text-left u-margin-inline-start-16 u-padding-inline-end-56"
         >
-          <NuxtLink :to="`/post/${doc.$id}`">
-            <div class="u-grid">
-              <span class="text eyebrow-heading-1"> {{ doc.title }} </span>
-              <span class="text">{{ doc.posts.slice(1, 200) }}</span>
-            </div>
-          </NuxtLink>
-          <span class="button icon-cheveron-right" aria-hidden="true"></span>
-        </li>
-      </ul>
+          {{ docs[0].title }}
+        </h2>
+        <p class="heading-level-7 u-padding-16 u-line-height-2">
+          {{ docs[0].content }}
+        </p>
+      </div>
+      <comment />
     </div>
   </main>
 </template>
@@ -29,6 +24,7 @@
 <script setup>
 import "@appwrite.io/pink";
 import "@appwrite.io/pink-icons";
+import comment from "../components/comment.vue";
 import { getPost } from "../utils";
 const docs = ref(null);
 
@@ -36,7 +32,7 @@ onMounted(() => {
   getPost.then(
     function (response) {
       docs.value = response.documents;
-      console.log(docs.value);
+      console.log(docs.value[0].title);
     },
     function (error) {
       console.log(error);
