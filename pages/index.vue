@@ -10,10 +10,10 @@
         <h2
           class="heading-level-3 u-text-left u-margin-inline-start-16 u-padding-inline-end-56"
         >
-          {{ docs[0].title }}
+          {{ docs.title }}
         </h2>
         <p class="heading-level-7 u-padding-16 u-line-height-2">
-          {{ docs[0].content }}
+          {{ docs.content }}
         </p>
       </div>
       <comment />
